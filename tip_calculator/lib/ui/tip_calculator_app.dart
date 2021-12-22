@@ -5,11 +5,21 @@ class TipCalculatorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Container(
-        alignment: Alignment.center,
-        color: Colors.white,
-        child: const Text("Tip Calculator App"),
+      home: Scaffold(
+      appBar: AppBar(
+        title: const Text("Tip Calculator"),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent
       ),
+        body: Center(
+          child: Column(
+            children: const [
+              Text("Total Per Person Widget"),
+              Text("Bill Tip Control Widget"),
+            ],
+          )
+        ),
+      )
     );
   }
 }
