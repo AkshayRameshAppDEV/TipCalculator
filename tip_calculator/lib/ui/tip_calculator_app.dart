@@ -9,10 +9,10 @@ class TipCalculatorApp extends StatelessWidget {
         primarySwatch: Colors.purple,
       ),
       home: Scaffold(
-      appBar: AppBar(
-        title: const Text("Tip Calculator"),
-        centerTitle: true,
-      ),
+        appBar: AppBar(
+          title: const Text("Tip Calculator"),
+          centerTitle: true
+        ),
         body: Center(
           child: Column(
             children: const [
