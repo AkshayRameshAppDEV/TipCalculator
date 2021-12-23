@@ -85,6 +85,14 @@ Row tipAmountRow() {
   );
 }
 
+
+Text tipPercentageRow() {
+  return Text("10 %",
+      textAlign: TextAlign.center,
+      style: TextStyle(
+          fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold));
+}
+
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   @override
   Widget build(BuildContext context) {
@@ -96,17 +104,16 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             billAmountInput(context),
             splitTipRow(),
             tipAmountRow(),
-             Text("Percentage Slider",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.0, color: appThemeColor)),
+            tipPercentageRow(),
           ],
         ),
       ),
     );
   }
+
 }
