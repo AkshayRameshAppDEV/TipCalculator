@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui_constants/ui_constants.dart';
+import '../ui_constants/ui_constants.dart';
 
 class TipCalculatorApp extends StatelessWidget {
   const TipCalculatorApp({Key? key}) : super(key: key);
