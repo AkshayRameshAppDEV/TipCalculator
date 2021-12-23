@@ -19,7 +19,7 @@ class TipCalculatorApp extends StatelessWidget {
         body: Center(
           child: Column(
             children: const [
-              Text("Total Per Person Widget"),
+              TotalPerPerson(),
               BillTipControl(),
             ],
           )
