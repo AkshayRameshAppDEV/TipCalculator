@@ -7,6 +7,26 @@ class BillTipControlWidget extends StatefulWidget {
   _BillTipControlWidgetState createState() => _BillTipControlWidgetState();
 }
 
+Padding billAmountInput(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+    child: TextFormField(
+      textInputAction: TextInputAction.done,
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      decoration: const InputDecoration(
+        border: UnderlineInputBorder(),
+        labelText: 'Enter the Bill Amount in (\$)',
+      ),
+    ),
+  );
+}
+
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   @override
   Widget build(BuildContext context) {
@@ -19,23 +39,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextFormField(
-                  textInputAction: TextInputAction.done,
-                onTap: () {
-                  FocusScopeNode currentFocus = FocusScope.of(context);
-
-                  if (!currentFocus.hasPrimaryFocus) {
-                    currentFocus.unfocus();
-                  }
-                },
-                decoration: const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  labelText: 'Enter the Bill Amount in (\$)',
-                ),
-              ),
-            ),
+            billAmountInput(context),
             const Text("Split",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.0, color: Colors.black)),
