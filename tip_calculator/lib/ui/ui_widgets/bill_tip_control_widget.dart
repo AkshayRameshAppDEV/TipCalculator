@@ -65,14 +65,20 @@ Row tipAmountRow() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-       Text("Tip",
+      Text("Tip",
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold)),
+          style: TextStyle(
+              fontSize: 20.0,
+              color: appThemeColor,
+              fontWeight: FontWeight.bold)),
       Row(
         children: [
-           Text("\$25",
-               textAlign: TextAlign.center,
-               style: TextStyle(fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold))
+          Text("\$25",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 20.0,
+                  color: appThemeColor,
+                  fontWeight: FontWeight.bold))
         ],
       )
     ],
