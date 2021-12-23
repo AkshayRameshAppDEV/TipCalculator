@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ui_constants/ui_constants.dart';
 
 class TipCalculatorApp extends StatelessWidget {
   const TipCalculatorApp({Key? key}) : super(key: key);
@@ -6,7 +7,7 @@ class TipCalculatorApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: appThemeColor,
       ),
       home: Scaffold(
         appBar: AppBar(
