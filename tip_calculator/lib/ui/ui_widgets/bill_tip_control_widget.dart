@@ -22,6 +22,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: TextFormField(
+                  textInputAction: TextInputAction.done,
                 onTap: () {
                   FocusScopeNode currentFocus = FocusScope.of(context);
 
@@ -29,8 +30,6 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
                     currentFocus.unfocus();
                   }
                 },
-                keyboardType: const TextInputType.numberWithOptions(
-                    decimal: true, signed: false),
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
                   labelText: 'Enter the Amount in (\$)',
