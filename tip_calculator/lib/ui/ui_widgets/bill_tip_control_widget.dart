@@ -9,6 +9,19 @@ class BillTipControlWidget extends StatefulWidget {
 }
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double _currentSliderValue = 10;
+  int _counter = 0;
+  
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
 
   Slider tipPercentageSliderRow() {
   return Slider(
@@ -55,21 +68,17 @@ Row splitTipRow() {
       Row(
         children: [
           ElevatedButton(
-            onPressed: () {
-              // Respond to button press
-            },
+            onPressed: _decrementCounter,
             child: const Text('-'),
           ),
            Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text("3",
+            child: Text("$_counter",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold)),
           ),
           ElevatedButton(
-            onPressed: () {
-              // Respond to button press
-            },
+            onPressed: _incrementCounter,
             child: const Text('+'),
           )
         ],
