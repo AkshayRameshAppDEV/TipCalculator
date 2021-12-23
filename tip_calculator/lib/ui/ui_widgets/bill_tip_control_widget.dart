@@ -7,6 +7,21 @@ class BillTipControlWidget extends StatefulWidget {
   @override
   _BillTipControlWidgetState createState() => _BillTipControlWidgetState();
 }
+class _BillTipControlWidgetState extends State<BillTipControlWidget> {
+  double _currentSliderValue = 10;
+
+  Slider tipPercentageSliderRow() {
+  return Slider(
+    value: _currentSliderValue,
+    max: 100,
+    divisions: 10,
+    label: _currentSliderValue.round().toString(),
+    onChanged: (double value) {
+      _currentSliderValue = value;
+    },
+  );
+
+}
 
 Padding billAmountInput(BuildContext context) {
   return Padding(
@@ -91,8 +106,6 @@ Text tipPercentageRow() {
       style: TextStyle(
           fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold));
 }
-
-class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -109,6 +122,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
             splitTipRow(),
             tipAmountRow(),
             tipPercentageRow(),
+            tipPercentageSliderRow()
           ],
         ),
       ),
