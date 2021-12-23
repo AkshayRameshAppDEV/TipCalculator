@@ -65,7 +65,8 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
           side: const BorderSide(color: Colors.black, width: 0.5),
           borderRadius: BorderRadius.circular(10.0)),
       color: Colors.white,
-      child: Center(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
