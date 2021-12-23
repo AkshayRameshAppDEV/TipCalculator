@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../ui_constants/ui_constants.dart';
 
 class BillTipControlWidget extends StatefulWidget {
   const BillTipControlWidget({Key? key}) : super(key: key);
@@ -31,9 +32,9 @@ Row splitTipRow() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      const Text("Split",
+       Text("Split",
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20.0, color: Colors.purple)),
+          style: TextStyle(fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold)),
       Row(
         children: [
           ElevatedButton(
@@ -42,11 +43,11 @@ Row splitTipRow() {
             },
             child: const Text('-'),
           ),
-          const Padding(
-            padding: EdgeInsets.all(10.0),
+           Padding(
+            padding: const EdgeInsets.all(10.0),
             child: Text("3",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                style: TextStyle(fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold)),
           ),
           ElevatedButton(
             onPressed: () {
@@ -75,12 +76,12 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
           children: [
             billAmountInput(context),
             splitTipRow(),
-            const Text("Tip",
+             Text("Tip",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.0, color: Colors.black)),
-            const Text("Percentage Slider",
+                style: TextStyle(fontSize: 20.0, color: appThemeColor)),
+             Text("Percentage Slider",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                style: TextStyle(fontSize: 20.0, color: appThemeColor)),
           ],
         ),
       ),
