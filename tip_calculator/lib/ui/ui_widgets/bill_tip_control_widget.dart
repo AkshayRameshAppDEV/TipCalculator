@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BillTipControl extends StatefulWidget {
-  const BillTipControl({Key? key}) : super(key: key);
+class BillTipControlWidget extends StatefulWidget {
+  const BillTipControlWidget({Key? key}) : super(key: key);
 
   @override
-  _BillTipControlState createState() => _BillTipControlState();
+  _BillTipControlWidgetState createState() => _BillTipControlWidgetState();
 }
 
-class _BillTipControlState extends State<BillTipControl> {
+class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   @override
   Widget build(BuildContext context) {
     return const Text("Bill Tip Control Widget");
