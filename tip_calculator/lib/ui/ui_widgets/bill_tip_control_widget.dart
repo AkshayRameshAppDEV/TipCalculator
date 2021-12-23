@@ -17,8 +17,10 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
     divisions: 10,
     label: _currentSliderValue.round().toString(),
     onChanged: (double value) {
-      _currentSliderValue = value;
-    },
+        setState(() {
+          _currentSliderValue = value;
+        });
+      },
   );
 
 }
