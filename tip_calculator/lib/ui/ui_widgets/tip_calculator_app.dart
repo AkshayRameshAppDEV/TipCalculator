@@ -16,15 +16,15 @@ class TipCalculatorApp extends StatelessWidget {
           title: const Text("Tip Calculator"),
           centerTitle: true
         ),
-        body: Center(
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               TotalTipPerPersonWidget(),
               BillTipControlWidget(),
             ],
-          )
-        ),
+          ),
+        )
       )
     );
   }
