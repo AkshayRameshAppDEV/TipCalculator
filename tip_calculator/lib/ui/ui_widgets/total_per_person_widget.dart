@@ -20,7 +20,7 @@ class _TotalTipPerPersonWidgetState extends State<TotalTipPerPersonWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Total Per Person", textAlign: TextAlign.center,style: TextStyle(fontSize: 20.0, color: appThemeColor)),
-              Text("\$91.67", textAlign: TextAlign.center,style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, color: appThemeColor))
+              FittedBox(fit: BoxFit.fitWidth, child: Text("\$91.67", textAlign: TextAlign.center,style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, color: appThemeColor)))
             ],
           ),
         ),
