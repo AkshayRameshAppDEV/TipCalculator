@@ -42,9 +42,12 @@ Row splitTipRow() {
             },
             child: const Text('-'),
           ),
-          const Text("3",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20.0, color: Colors.black)),
+          const Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text("3",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20.0, color: Colors.black)),
+          ),
           ElevatedButton(
             onPressed: () {
               // Respond to button press
