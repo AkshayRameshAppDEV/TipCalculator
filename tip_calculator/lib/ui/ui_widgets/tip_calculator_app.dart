@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../ui_constants/ui_constants.dart';
+import 'total_per_person_widget.dart';
+import 'bill_tip_control_widget.dart';
 
 class TipCalculatorApp extends StatelessWidget {
   const TipCalculatorApp({Key? key}) : super(key: key);
@@ -18,7 +20,7 @@ class TipCalculatorApp extends StatelessWidget {
           child: Column(
             children: const [
               Text("Total Per Person Widget"),
-              Text("Bill Tip Control Widget"),
+              BillTipControl(),
             ],
           )
         ),
