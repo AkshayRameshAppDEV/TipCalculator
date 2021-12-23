@@ -34,7 +34,7 @@ Row splitTipRow() {
     children: [
        Text("Split",
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold)),
+          style: TextStyle(fontSize: 20.0, color: appThemeColor)),
       Row(
         children: [
           ElevatedButton(
@@ -69,8 +69,7 @@ Row tipAmountRow() {
           textAlign: TextAlign.center,
           style: TextStyle(
               fontSize: 20.0,
-              color: appThemeColor,
-              fontWeight: FontWeight.bold)),
+              color: appThemeColor)),
       Row(
         children: [
           Text("\$25",
