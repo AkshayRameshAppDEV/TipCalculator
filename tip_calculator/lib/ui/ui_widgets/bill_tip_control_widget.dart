@@ -32,7 +32,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
                 },
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
-                  labelText: 'Enter the Amount in (\$)',
+                  labelText: 'Enter the Bill Amount in (\$)',
                 ),
               ),
             ),
