@@ -10,6 +10,51 @@ class BillTipControlWidget extends StatefulWidget {
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Text("Bill Tip Control Widget");
+    return Card(
+      shape: RoundedRectangleBorder(
+        side:  const BorderSide(color: Colors.black, width: 0.5),
+        borderRadius: BorderRadius.circular(10.0)
+      ),
+      color: Colors.white,
+      child:  Center(
+        child:  Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text( 
+              "Bill Amount", 
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20.0, 
+                color: Colors.black
+              )
+            ),
+            Text( 
+              "Split", 
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20.0, 
+                color: Colors.black
+              )
+            ),
+            Text( 
+              "Tip", 
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20.0, 
+                color: Colors.black
+              )
+            ),
+            Text( 
+              "Percentage Slider", 
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20.0, 
+                color: Colors.black
+              )
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
