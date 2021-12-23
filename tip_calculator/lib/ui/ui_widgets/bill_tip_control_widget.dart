@@ -27,6 +27,36 @@ Padding billAmountInput(BuildContext context) {
   );
 }
 
+Row splitTipRow() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      const Text("Split",
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 20.0, color: Colors.purple)),
+      Row(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              // Respond to button press
+            },
+            child: const Text('-'),
+          ),
+          const Text("3",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20.0, color: Colors.black)),
+          ElevatedButton(
+            onPressed: () {
+              // Respond to button press
+            },
+            child: const Text('+'),
+          )
+        ],
+      )
+    ],
+  );
+}
+
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   @override
   Widget build(BuildContext context) {
@@ -40,9 +70,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             billAmountInput(context),
-            const Text("Split",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.0, color: Colors.black)),
+            splitTipRow(),
             const Text("Tip",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.0, color: Colors.black)),
