@@ -103,7 +103,7 @@ Row tipAmountRow() {
 
 
 Text tipPercentageRow() {
-  return Text("10 %",
+  return Text("${_currentSliderValue.toInt()} %",
       textAlign: TextAlign.center,
       style: TextStyle(
           fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold));
