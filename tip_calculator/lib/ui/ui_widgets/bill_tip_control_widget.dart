@@ -8,6 +8,7 @@ class BillTipControlWidget extends StatefulWidget {
   @override
   _BillTipControlWidgetState createState() => _BillTipControlWidgetState();
 }
+
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double _currentSliderValue = 10;
   int _counter = 0;
@@ -16,7 +17,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
     var tipCalculator = TipCalculator(0.1, 120);
     return tipCalculator.getTipAmount();
   }
-  
+
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -30,99 +31,99 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   }
 
   Slider tipPercentageSliderRow() {
-  return Slider(
-    value: _currentSliderValue,
-    max: 100,
-    divisions: 10,
-    label: _currentSliderValue.round().toString(),
-    onChanged: (double value) {
+    return Slider(
+      value: _currentSliderValue,
+      max: 100,
+      divisions: 10,
+      label: _currentSliderValue.round().toString(),
+      onChanged: (double value) {
         setState(() {
           _currentSliderValue = value;
         });
       },
-  );
+    );
+  }
 
-}
+  Padding billAmountInput(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+      child: TextFormField(
+        textInputAction: TextInputAction.done,
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
 
-Padding billAmountInput(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-    child: TextFormField(
-      textInputAction: TextInputAction.done,
-      onTap: () {
-        FocusScopeNode currentFocus = FocusScope.of(context);
-
-        if (!currentFocus.hasPrimaryFocus) {
-          currentFocus.unfocus();
-        }
-      },
-      decoration: const InputDecoration(
-        border: UnderlineInputBorder(),
-        labelText: 'Enter the Bill Amount in (\$)',
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+          }
+        },
+        decoration: const InputDecoration(
+          border: UnderlineInputBorder(),
+          labelText: 'Enter the Bill Amount in (\$)',
+        ),
       ),
-    ),
-  );
-}
+    );
+  }
 
-Row splitTipRow() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-       Text("Split",
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20.0, color: appThemeColor)),
-      Row(
-        children: [
-          ElevatedButton(
-            onPressed: _decrementCounter,
-            child: const Text('-'),
-          ),
-           Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text("$_counter",
+  Row splitTipRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text("Split",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20.0, color: appThemeColor)),
+        Row(
+          children: [
+            ElevatedButton(
+              onPressed: _decrementCounter,
+              child: const Text('-'),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text("$_counter",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: appThemeColor,
+                      fontWeight: FontWeight.bold)),
+            ),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: const Text('+'),
+            )
+          ],
+        )
+      ],
+    );
+  }
+
+  Row tipAmountRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text("Tip",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20.0, color: appThemeColor)),
+        Row(
+          children: [
+            Text(getTipAmount(),
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold)),
-          ),
-          ElevatedButton(
-            onPressed: _incrementCounter,
-            child: const Text('+'),
-          )
-        ],
-      )
-    ],
-  );
-}
+                style: TextStyle(
+                    fontSize: 20.0,
+                    color: appThemeColor,
+                    fontWeight: FontWeight.bold))
+          ],
+        )
+      ],
+    );
+  }
 
-Row tipAmountRow() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text("Tip",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 20.0,
-              color: appThemeColor)),
-      Row(
-        children: [
-          Text(getTipAmount(),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 20.0,
-                  color: appThemeColor,
-                  fontWeight: FontWeight.bold))
-        ],
-      )
-    ],
-  );
-}
+  Text tipPercentageRow() {
+    return Text("${_currentSliderValue.toInt()} %",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold));
+  }
 
-
-Text tipPercentageRow() {
-  return Text("${_currentSliderValue.toInt()} %",
-      textAlign: TextAlign.center,
-      style: TextStyle(
-          fontSize: 20.0, color: appThemeColor, fontWeight: FontWeight.bold));
-}
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -145,5 +146,4 @@ Text tipPercentageRow() {
       ),
     );
   }
-
 }
