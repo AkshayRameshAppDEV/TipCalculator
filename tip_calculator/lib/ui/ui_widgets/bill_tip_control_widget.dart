@@ -15,11 +15,15 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double tipAmount = 0.0;
   double totalBillAmountFromUser = 0.0;
 
-  void _getBillAmountFromUser(String amt) { 
-    setState(() { //If user enter alphabets from keyboard handle that
-      if(amt.isNotEmpty) {
-        totalBillAmountFromUser = double.parse(amt);
-      } else {
+  void _getBillAmountFromUser(String amt) {
+    setState(() {
+      try {
+        if (amt.isNotEmpty) {
+          totalBillAmountFromUser = double.parse(amt);
+        } else {
+          totalBillAmountFromUser = double.parse("0.0");
+        }
+      } catch (e) {
         totalBillAmountFromUser = double.parse("0.0");
       }
       setTipAmount();
