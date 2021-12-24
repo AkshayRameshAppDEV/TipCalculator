@@ -11,6 +11,15 @@ class TipCalculatorApp extends StatefulWidget {
 }
 
 class _TipCalculatorAppState extends State<TipCalculatorApp> {
+  bool _active = false;
+
+  void _handleTapboxChanged(bool newValue) {
+    setState(() {
+      _active = newValue;
+      debugPrint('notified');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,9 +36,9 @@ class _TipCalculatorAppState extends State<TipCalculatorApp> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                TotalTipPerPersonWidget(),
-                BillTipControlWidget(),
+              children:  [
+                 TotalTipPerPersonWidget(activeValue: _active),
+                BillTipControlWidget(active: _active, onChanged: _handleTapboxChanged),
               ],
             ),
           ),

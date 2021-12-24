@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../ui_constants/ui_constants.dart';
 
 class TotalTipPerPersonWidget extends StatefulWidget {
-  const TotalTipPerPersonWidget({Key? key}) : super(key: key);
+    final bool activeValue;
+  const TotalTipPerPersonWidget({Key? key, this.activeValue = false}) : super(key: key);
 
   @override
   _TotalTipPerPersonWidgetState createState() => _TotalTipPerPersonWidgetState();
@@ -30,7 +31,7 @@ class _TotalTipPerPersonWidgetState extends State<TotalTipPerPersonWidget> {
               FittedBox(
                 fit: BoxFit.fitWidth, 
                 child: Text(
-                  "\$91.67", 
+                  "\$${widget.activeValue}", 
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 25.0, 
