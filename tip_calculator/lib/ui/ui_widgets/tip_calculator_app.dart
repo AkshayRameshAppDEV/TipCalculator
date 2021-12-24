@@ -3,8 +3,14 @@ import '../ui_constants/ui_constants.dart';
 import 'total_per_person_widget.dart';
 import 'bill_tip_control_widget.dart';
 
-class TipCalculatorApp extends StatelessWidget {
+class TipCalculatorApp extends StatefulWidget {
   const TipCalculatorApp({Key? key}) : super(key: key);
+
+  @override
+  _TipCalculatorAppState createState() => _TipCalculatorAppState();
+}
+
+class _TipCalculatorAppState extends State<TipCalculatorApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
