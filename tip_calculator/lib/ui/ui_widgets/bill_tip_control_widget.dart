@@ -123,7 +123,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
             style: TextStyle(fontSize: 20.0, color: appThemeColor)),
         Row(
           children: [
-            Text('$tipAmount',
+            Text('\$$tipAmount',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 20.0,
