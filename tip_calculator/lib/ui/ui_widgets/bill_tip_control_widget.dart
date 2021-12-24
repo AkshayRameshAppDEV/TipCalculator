@@ -13,6 +13,19 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double _currentSliderValue = 10;
   int _counter = 0;
   double tipAmount = 0.0;
+  double totalBillAmountFromUser = 0.0;
+
+  void _getBillAmountFromUser(String amt) { 
+    setState(() { //If user enter alphabets from keyboard handle that
+      if(amt.isNotEmpty) {
+        totalBillAmountFromUser = double.parse(amt);
+      } else {
+        totalBillAmountFromUser = double.parse("0.0");
+      }
+      var tipCalculator = TipCalculator(_currentSliderValue/100, totalBillAmountFromUser);
+      tipAmount = tipCalculator.getTipAmount();
+    });
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -35,7 +48,6 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
       onChanged: (double value) {
         setState(() {
           _currentSliderValue = value;
-          debugPrint('$_currentSliderValue');
           var tipCalculator = TipCalculator(_currentSliderValue/100, 250);
           tipAmount = tipCalculator.getTipAmount();
         });
@@ -47,6 +59,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
       child: TextFormField(
+        onFieldSubmitted: (value) => _getBillAmountFromUser(value),
         textInputAction: TextInputAction.done,
         onTap: () {
           FocusScopeNode currentFocus = FocusScope.of(context);
