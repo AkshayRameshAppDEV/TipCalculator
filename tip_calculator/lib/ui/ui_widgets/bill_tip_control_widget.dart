@@ -48,7 +48,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
       onChanged: (double value) {
         setState(() {
           _currentSliderValue = value;
-          var tipCalculator = TipCalculator(_currentSliderValue/100, 250);
+          var tipCalculator = TipCalculator(_currentSliderValue/100, totalBillAmountFromUser);
           tipAmount = tipCalculator.getTipAmount();
         });
       },
