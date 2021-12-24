@@ -22,9 +22,13 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
       } else {
         totalBillAmountFromUser = double.parse("0.0");
       }
-      var tipCalculator = TipCalculator(_currentSliderValue/100, totalBillAmountFromUser);
-      tipAmount = tipCalculator.getTipAmount();
+      setTipAmount();
     });
+  }
+
+  void setTipAmount() {
+    var tipCalculator = TipCalculator(_currentSliderValue/100, totalBillAmountFromUser);
+    tipAmount = tipCalculator.getTipAmount();
   }
 
   void _incrementCounter() {
@@ -48,8 +52,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
       onChanged: (double value) {
         setState(() {
           _currentSliderValue = value;
-          var tipCalculator = TipCalculator(_currentSliderValue/100, totalBillAmountFromUser);
-          tipAmount = tipCalculator.getTipAmount();
+          setTipAmount();
         });
       },
     );
