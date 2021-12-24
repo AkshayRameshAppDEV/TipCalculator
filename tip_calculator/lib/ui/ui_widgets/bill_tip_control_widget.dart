@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tip_calculator/model/tip_calculator.dart';
 import '../ui_constants/ui_constants.dart';
 
 class BillTipControlWidget extends StatefulWidget {
@@ -10,6 +11,11 @@ class BillTipControlWidget extends StatefulWidget {
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double _currentSliderValue = 10;
   int _counter = 0;
+
+  String getTipAmount() {
+    var tipCalculator = TipCalculator(0.1, 120);
+    return tipCalculator.getTipAmount();
+  }
   
   void _incrementCounter() {
     setState(() {
@@ -98,7 +104,7 @@ Row tipAmountRow() {
               color: appThemeColor)),
       Row(
         children: [
-          Text("\$25",
+          Text(getTipAmount(),
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 20.0,
