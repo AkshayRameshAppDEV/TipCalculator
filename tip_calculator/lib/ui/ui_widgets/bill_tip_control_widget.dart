@@ -66,7 +66,6 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
         textInputAction: TextInputAction.done,
         onTap: () {
           FocusScopeNode currentFocus = FocusScope.of(context);
-
           if (!currentFocus.hasPrimaryFocus) {
             currentFocus.unfocus();
           }
