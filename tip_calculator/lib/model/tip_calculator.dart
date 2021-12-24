@@ -5,8 +5,8 @@ class TipCalculator {
 
   TipCalculator(this.tipPercent, this.totalBillAmount);
 
-  String getTipAmount() {
+  double getTipAmount() {
     double tipAmount = totalBillAmount * tipPercent;
-    return '$tipAmount';
+    return tipAmount;
   }
 }

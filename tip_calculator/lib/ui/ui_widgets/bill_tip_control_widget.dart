@@ -12,11 +12,7 @@ class BillTipControlWidget extends StatefulWidget {
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double _currentSliderValue = 10;
   int _counter = 0;
-
-  String getTipAmount() {
-    var tipCalculator = TipCalculator(0.1, 120);
-    return tipCalculator.getTipAmount();
-  }
+  double tipAmount = 0.0;
 
   void _incrementCounter() {
     setState(() {
@@ -39,6 +35,9 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
       onChanged: (double value) {
         setState(() {
           _currentSliderValue = value;
+          debugPrint('$_currentSliderValue');
+          var tipCalculator = TipCalculator(_currentSliderValue/100, 250);
+          tipAmount = tipCalculator.getTipAmount();
         });
       },
     );
@@ -105,7 +104,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
             style: TextStyle(fontSize: 20.0, color: appThemeColor)),
         Row(
           children: [
-            Text(getTipAmount(),
+            Text('$tipAmount',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 20.0,
