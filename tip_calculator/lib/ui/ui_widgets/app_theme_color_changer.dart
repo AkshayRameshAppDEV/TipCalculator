@@ -7,7 +7,8 @@ class AppThemeColorChangerWidget extends StatefulWidget {
   _AppThemeColorChangerWidgetState createState() => _AppThemeColorChangerWidgetState();
 }
 
-class _AppThemeColorChangerWidgetState extends State<AppThemeColorChangerWidget> {
+class _AppThemeColorChangerWidgetState
+    extends State<AppThemeColorChangerWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,14 +21,30 @@ class _AppThemeColorChangerWidgetState extends State<AppThemeColorChangerWidget>
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
+          children: [
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("Color Circle 1"),
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: null,
+                style: ElevatedButton.styleFrom(
+                  shape: const CircleBorder(),
+                  padding: const EdgeInsets.all(20),
+                  primary: Colors.blue, // <-- Button color
+                ),
+              ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("Color Circle 2"),
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: null,
+                style: ElevatedButton.styleFrom(
+                  shape: const CircleBorder(),
+                  padding: const EdgeInsets.all(20),
+                  primary: Colors.red, // <-- Button color
+                ),
+              ),
             ),
           ],
         ),
