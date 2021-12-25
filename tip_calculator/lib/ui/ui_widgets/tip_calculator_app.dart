@@ -11,9 +11,9 @@ class TipCalculatorApp extends StatefulWidget {
 }
 
 class _TipCalculatorAppState extends State<TipCalculatorApp> {
-  bool _active = false;
+  String _active = "0";
 
-  void _handleTapboxChanged(bool newValue) {
+  void _handleTapboxChanged(String newValue) {
     setState(() {
       _active = newValue;
       debugPrint('notified');

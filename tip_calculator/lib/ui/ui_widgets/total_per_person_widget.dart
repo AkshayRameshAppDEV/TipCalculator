@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../ui_constants/ui_constants.dart';
 
 class TotalTipPerPersonWidget extends StatefulWidget {
-    final bool activeValue;
-  const TotalTipPerPersonWidget({Key? key, this.activeValue = false}) : super(key: key);
+    final String activeValue;
+  const TotalTipPerPersonWidget({Key? key, this.activeValue = "0"}) : super(key: key);
 
   @override
   _TotalTipPerPersonWidgetState createState() => _TotalTipPerPersonWidgetState();
