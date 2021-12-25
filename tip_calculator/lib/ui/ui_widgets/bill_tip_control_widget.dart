@@ -19,7 +19,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double totalAmt = 0.0;
 
   void _handleTap() {
-    widget.onBillTipControlSplitButtonTapped(totalAmt.toString());
+    widget.onBillTipControlSplitButtonTapped(totalAmt.toStringAsFixed(2).toString());
   }
 
   void _getBillAmountFromUser(String amt) {
@@ -143,7 +143,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
             style: TextStyle(fontSize: 20.0, color: appThemeColor)),
         Row(
           children: [
-            Text('\$$tipAmount',
+            Text('\$${tipAmount.toStringAsFixed(2)}',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 20.0,
