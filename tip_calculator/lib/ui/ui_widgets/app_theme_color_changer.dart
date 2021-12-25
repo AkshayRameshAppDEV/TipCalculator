@@ -9,6 +9,9 @@ class AppThemeColorChangerWidget extends StatefulWidget {
 }
 
 class _AppThemeColorChangerWidgetState extends State<AppThemeColorChangerWidget> {
+
+  List<MaterialColor> appThemeColorsArray = [Colors.red, Colors.blue, Colors.pink, Colors.amber, Colors.green];
+
   void _handleTap(MaterialColor color) {
     widget.handleThemeColorButtonTapped(color);
   }
@@ -24,34 +27,26 @@ class _AppThemeColorChangerWidgetState extends State<AppThemeColorChangerWidget>
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: () => _handleTap(Colors.blue),
-                child: null,
-                style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
-                  padding: const EdgeInsets.all(20),
-                  primary: Colors.blue, // <-- Button color
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: () => _handleTap(Colors.red),
-                child: null,
-                style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
-                  padding: const EdgeInsets.all(20),
-                  primary: Colors.red, // <-- Button color
-                ),
-              ),
-            ),
-          ],
+         children: <Widget>[
+          for(var item in appThemeColorsArray ) paddedCircularColorWidget(item)
+      ]
         ),
       ),
     );
+  }
+
+  Padding paddedCircularColorWidget(MaterialColor color) {
+    return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () => _handleTap(color),
+              child: null,
+              style: ElevatedButton.styleFrom(
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(20),
+                primary: color, // <-- Button color
+              ),
+            ),
+          );
   }
 }
