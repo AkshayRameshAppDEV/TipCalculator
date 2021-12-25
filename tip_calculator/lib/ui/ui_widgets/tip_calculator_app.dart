@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../ui_constants/ui_constants.dart';
 import 'total_per_person_widget.dart';
 import 'bill_tip_control_widget.dart';
+import 'app_theme_color_changer.dart';
 
 class TipCalculatorApp extends StatefulWidget {
   const TipCalculatorApp({Key? key}) : super(key: key);
@@ -38,6 +39,7 @@ class _TipCalculatorAppState extends State<TipCalculatorApp> {
               children:  [
                 TotalTipPerPersonWidget(totalPerPersonAmt: totalPerPersonAmt),
                 BillTipControlWidget(totalPerPersonAmt: totalPerPersonAmt, onBillTipControlSplitButtonTapped: _handleBillTipControlSplitButtonTapped),
+                const AppThemeColorChangerWidget()
               ],
             ),
           ),
