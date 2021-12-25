@@ -10,7 +10,7 @@ class AppThemeColorChangerWidget extends StatefulWidget {
 
 class _AppThemeColorChangerWidgetState extends State<AppThemeColorChangerWidget> {
 
-  List<MaterialColor> appThemeColorsArray = [Colors.red, Colors.blue, Colors.pink, Colors.amber, Colors.green];
+  List<MaterialColor> appThemeColorsArray = [Colors.purple, Colors.red, Colors.blue, Colors.pink, Colors.amber, Colors.green];
 
   void _handleTap(MaterialColor color) {
     widget.handleThemeColorButtonTapped(color);
