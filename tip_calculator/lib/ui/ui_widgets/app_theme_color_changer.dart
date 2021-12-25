@@ -24,12 +24,15 @@ class _AppThemeColorChangerWidgetState extends State<AppThemeColorChangerWidget>
       color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-         children: <Widget>[
-          for(var item in appThemeColorsArray ) paddedCircularColorWidget(item)
-      ]
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+           children: <Widget>[
+            for(var item in appThemeColorsArray ) paddedCircularColorWidget(item)
+              ]
+          ),
         ),
       ),
     );
