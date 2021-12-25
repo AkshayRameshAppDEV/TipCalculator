@@ -94,6 +94,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
 
   TextFormField billAmountInput(BuildContext context) {
     return TextFormField(
+      style: TextStyle(color: appThemeColor),
       onFieldSubmitted: (value) => _getBillAmountFromUser(value),
       textInputAction: TextInputAction.done,
       onTap: () {
