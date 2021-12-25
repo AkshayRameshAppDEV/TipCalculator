@@ -3,9 +3,9 @@ import 'package:tip_calculator/model/tip_calculator.dart';
 import '../ui_constants/ui_constants.dart';
 
 class BillTipControlWidget extends StatefulWidget {
-  final String active;
-  final ValueChanged<String> onChanged;
-  const BillTipControlWidget({Key? key, this.active = "0", required this.onChanged}) : super(key: key);
+  final String totalPerPersonAmt;
+  final ValueChanged<String> onBillTipControlSplitButtonTapped;
+  const BillTipControlWidget({Key? key, this.totalPerPersonAmt = "0", required this.onBillTipControlSplitButtonTapped}) : super(key: key);
 
   @override
   _BillTipControlWidgetState createState() => _BillTipControlWidgetState();
@@ -18,7 +18,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double totalBillAmountFromUser = 0.0;
 
   void _handleTap() {
-    widget.onChanged(_counter.toString());
+    widget.onBillTipControlSplitButtonTapped(_counter.toString());
   }
 
   void _getBillAmountFromUser(String amt) {

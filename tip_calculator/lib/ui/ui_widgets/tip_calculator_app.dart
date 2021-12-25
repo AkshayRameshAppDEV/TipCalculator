@@ -11,11 +11,11 @@ class TipCalculatorApp extends StatefulWidget {
 }
 
 class _TipCalculatorAppState extends State<TipCalculatorApp> {
-  String _active = "0";
+  String totalPerPersonAmt = "0";
 
-  void _handleTapboxChanged(String newValue) {
+  void _handleBillTipControlSplitButtonTapped(String newValue) {
     setState(() {
-      _active = newValue;
+      totalPerPersonAmt = newValue;
       debugPrint('notified');
     });
   }
@@ -37,8 +37,8 @@ class _TipCalculatorAppState extends State<TipCalculatorApp> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:  [
-                 TotalTipPerPersonWidget(activeValue: _active),
-                BillTipControlWidget(active: _active, onChanged: _handleTapboxChanged),
+                TotalTipPerPersonWidget(totalPerPersonAmt: totalPerPersonAmt),
+                BillTipControlWidget(totalPerPersonAmt: totalPerPersonAmt, onBillTipControlSplitButtonTapped: _handleBillTipControlSplitButtonTapped),
               ],
             ),
           ),
