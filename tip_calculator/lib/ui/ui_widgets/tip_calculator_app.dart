@@ -16,7 +16,6 @@ class _TipCalculatorAppState extends State<TipCalculatorApp> {
   void _handleBillTipControlSplitButtonTapped(String newValue) {
     setState(() {
       totalPerPersonAmt = newValue;
-      debugPrint('notified');
     });
   }
 
