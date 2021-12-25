@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AppThemeColorChangerWidget extends StatefulWidget {
-  const AppThemeColorChangerWidget({Key? key}) : super(key: key);
+  final ValueChanged<MaterialColor> handleThemeColorButtonTapped;
+  const AppThemeColorChangerWidget({Key? key, required this.handleThemeColorButtonTapped}) : super(key: key);
 
   @override
   _AppThemeColorChangerWidgetState createState() => _AppThemeColorChangerWidgetState();
 }
 
-class _AppThemeColorChangerWidgetState
-    extends State<AppThemeColorChangerWidget> {
+class _AppThemeColorChangerWidgetState extends State<AppThemeColorChangerWidget> {
+  void _handleTap(MaterialColor color) {
+    widget.handleThemeColorButtonTapped(color);
+  }
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -25,7 +28,7 @@ class _AppThemeColorChangerWidgetState
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => _handleTap(Colors.blue),
                 child: null,
                 style: ElevatedButton.styleFrom(
                   shape: const CircleBorder(),
@@ -37,7 +40,7 @@ class _AppThemeColorChangerWidgetState
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => _handleTap(Colors.red),
                 child: null,
                 style: ElevatedButton.styleFrom(
                   shape: const CircleBorder(),

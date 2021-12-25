@@ -20,6 +20,12 @@ class _TipCalculatorAppState extends State<TipCalculatorApp> {
     });
   }
 
+  void _handleThemeColorButtonTapped(MaterialColor color) {
+    setState(() {
+      appThemeColor = color;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,7 +45,7 @@ class _TipCalculatorAppState extends State<TipCalculatorApp> {
               children:  [
                 TotalTipPerPersonWidget(totalPerPersonAmt: totalPerPersonAmt),
                 BillTipControlWidget(totalPerPersonAmt: totalPerPersonAmt, onBillTipControlSplitButtonTapped: _handleBillTipControlSplitButtonTapped),
-                const AppThemeColorChangerWidget()
+                AppThemeColorChangerWidget(handleThemeColorButtonTapped: _handleThemeColorButtonTapped)
               ],
             ),
           ),
