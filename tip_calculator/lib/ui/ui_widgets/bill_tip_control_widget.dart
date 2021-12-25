@@ -17,7 +17,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double tipAmount = 0.0;
   double totalBillAmountFromUser = 0.0;
   double totalAmt = 0.0;
-  bool isButtonDisabled = false;
+  bool isButtonDisabled = true;
 
   void _handleTap() {
     widget.onBillTipControlSplitButtonTapped(totalAmt.toStringAsFixed(2).toString());
@@ -67,7 +67,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   }
 
   bool isButtonDisabledStatus(){
-    if(_counter >= 1) {
+    if(_counter > 1) {
       isButtonDisabled = false;
     } else {
       isButtonDisabled = true;
