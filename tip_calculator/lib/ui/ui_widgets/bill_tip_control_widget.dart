@@ -92,22 +92,19 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
     );
   }
 
-  Padding billAmountInput(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextFormField(
-        onFieldSubmitted: (value) => _getBillAmountFromUser(value),
-        textInputAction: TextInputAction.done,
-        onTap: () {
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          if (!currentFocus.hasPrimaryFocus) {
-            currentFocus.unfocus();
-          }
-        },
-        decoration: const InputDecoration(
-          border: UnderlineInputBorder(),
-          labelText: 'Enter the Bill Amount in (\$)',
-        ),
+  TextFormField billAmountInput(BuildContext context) {
+    return TextFormField(
+      onFieldSubmitted: (value) => _getBillAmountFromUser(value),
+      textInputAction: TextInputAction.done,
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      decoration: const InputDecoration(
+        border: UnderlineInputBorder(),
+        labelText: 'Enter the Bill Amount in (\$)',
       ),
     );
   }
@@ -184,11 +181,26 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            billAmountInput(context),
-            splitTipRow(),
-            tipAmountRow(),
-            tipPercentageRow(),
-            tipPercentageSliderRow()
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: billAmountInput(context),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: splitTipRow(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: tipAmountRow(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: tipPercentageRow(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: tipPercentageSliderRow(),
+            )
           ],
         ),
       ),
