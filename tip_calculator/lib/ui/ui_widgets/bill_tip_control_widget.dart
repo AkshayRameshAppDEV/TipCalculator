@@ -13,12 +13,13 @@ class BillTipControlWidget extends StatefulWidget {
 
 class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double _currentSliderValue = 10;
-  int _counter = 0;
+  int _counter = 1;
   double tipAmount = 0.0;
   double totalBillAmountFromUser = 0.0;
+  double totalAmt = 0.0;
 
   void _handleTap() {
-    widget.onBillTipControlSplitButtonTapped(_counter.toString());
+    widget.onBillTipControlSplitButtonTapped(totalAmt.toString());
   }
 
   void _getBillAmountFromUser(String amt) {
@@ -33,17 +34,25 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
         totalBillAmountFromUser = double.parse("0.0");
       }
       setTipAmount();
+      getTotalAmtPerPerson();
+      _handleTap();
     });
   }
 
+  void getTotalAmtPerPerson() {
+    var tipCalculator = TipCalculator(_currentSliderValue/100, totalBillAmountFromUser, _counter);
+     totalAmt = tipCalculator.getTotalPerPersonAmt();
+  }
+
   void setTipAmount() {
-    var tipCalculator = TipCalculator(_currentSliderValue/100, totalBillAmountFromUser);
+    var tipCalculator = TipCalculator(_currentSliderValue/100, totalBillAmountFromUser, _counter);
     tipAmount = tipCalculator.getTipAmount();
   }
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+      getTotalAmtPerPerson();
       _handleTap();
     });
   }
@@ -51,6 +60,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   void _decrementCounter() {
     setState(() {
       _counter--;
+      getTotalAmtPerPerson();
       _handleTap();
     });
   }
@@ -65,6 +75,8 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
         setState(() {
           _currentSliderValue = value;
           setTipAmount();
+          getTotalAmtPerPerson();
+          _handleTap();
         });
       },
     );
