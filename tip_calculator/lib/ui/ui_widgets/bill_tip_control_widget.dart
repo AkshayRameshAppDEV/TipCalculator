@@ -17,6 +17,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
   double tipAmount = 0.0;
   double totalBillAmountFromUser = 0.0;
   double totalAmt = 0.0;
+  bool isButtonDisabled = false;
 
   void _handleTap() {
     widget.onBillTipControlSplitButtonTapped(totalAmt.toStringAsFixed(2).toString());
@@ -63,6 +64,15 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
       getTotalAmtPerPerson();
       _handleTap();
     });
+  }
+
+  bool isButtonDisabledStatus(){
+    if(_counter >= 1) {
+      isButtonDisabled = false;
+    } else {
+      isButtonDisabled = true;
+    }
+    return isButtonDisabled;
   }
 
   Slider tipPercentageSliderRow() {
@@ -112,7 +122,7 @@ class _BillTipControlWidgetState extends State<BillTipControlWidget> {
         Row(
           children: [
             ElevatedButton(
-              onPressed: _decrementCounter,
+              onPressed: isButtonDisabledStatus() ? null : () => _decrementCounter(),
               child: const Text('-'),
             ),
             Padding(
